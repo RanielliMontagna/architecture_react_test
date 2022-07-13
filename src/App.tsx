@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useApp } from 'store';
 
-function App() {
+import { Router } from 'routes';
+import GlobalStyle from 'styles/globalStyles';
+import { Loading } from 'components';
+
+const App = () => {
+  const { loading } = useApp();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Router />
+      {loading && <Loading />}
+    </>
   );
-}
+};
 
 export default App;
