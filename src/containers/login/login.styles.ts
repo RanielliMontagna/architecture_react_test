@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { danger } from 'styles/colors/colors';
 
 //Login
 export const DivLogin = styled.div`
@@ -56,6 +57,13 @@ export const ButtonEnter = styled.button`
 
   &:hover {
   }
+`;
+
+export const Error = styled.div`
+  background-color: ${danger};
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
 `;
 
 //Layout
