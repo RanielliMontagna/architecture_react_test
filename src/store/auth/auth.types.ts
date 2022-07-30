@@ -1,13 +1,15 @@
-interface Profile {
+export type Token = string | null;
+
+export interface IProfile {
   name: string;
 }
 
-export interface AuthStore {
+export interface AuthStates {
   isAuthenticated: boolean;
-  setIsAuthenticated: (isAuthenticated: boolean) => void;
-
-  setProfile: (profile: Profile) => void;
-  profile?: Profile;
-
-  logout: () => void;
+  token: Token;
+  profile?: IProfile;
+}
+export interface AuthStore extends AuthStates {
+  setToken: (token: Token, remember?: boolean) => void;
+  clearStore: () => void;
 }

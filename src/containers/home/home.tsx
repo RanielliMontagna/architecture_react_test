@@ -2,7 +2,7 @@ import { useAuth } from 'store';
 import { Button } from './home.styles';
 
 const Home = () => {
-  const { profile, logout } = useAuth();
+  const { profile, clearStore } = useAuth();
 
   return (
     <div
@@ -17,7 +17,7 @@ const Home = () => {
       <h2>Olá</h2>
       <h1>{profile?.name}</h1>
 
-      <Button onClick={logout}>Sair</Button>
+      <Button onClick={clearStore}>Sair</Button>
     </div>
   );
 };

@@ -3,18 +3,19 @@ import { useApp, useAuth } from 'store';
 import { LoginFormValues } from './login.types';
 
 const useLogin = () => {
-  const { setIsAuthenticated, setProfile } = useAuth();
+  const { setToken } = useAuth();
   const { setLoading } = useApp();
   const { enqueueSnackbar } = useSnackbar();
 
-  const onSubmit = ({ user, password }: LoginFormValues) => {
+  const onSubmit = ({ password }: LoginFormValues) => {
     setLoading(true);
 
     setTimeout(() => {
       if (password === '123456') {
-        setIsAuthenticated(true);
+        setToken(
+          'eyJuYW1lIjoiUmFubmkiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.yHb_4ULIqAbLjYpu7C06b86bQp7Tnuh4puD9po1pY58'
+        );
         setLoading(false);
-        setProfile({ name: user });
       } else {
         enqueueSnackbar('Senha incorreta', { variant: 'error', autoHideDuration: 2000 });
         setLoading(false);

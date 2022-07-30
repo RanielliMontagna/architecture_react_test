@@ -17,7 +17,6 @@ export const Router = () => {
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
         <RoutesWithSentry>
-          {/* TODO: lógica de autenticação */}
           {!isAuthenticated ? (
             <Route path="/" element={<Public />}>
               <Route path="/login" element={<Login />} />
